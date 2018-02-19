@@ -9,16 +9,16 @@ app.use(morgan('combined'));
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
-apt.get('/article-one',function(req,res)
+app.get('/article-one',function(req,res)
 {
   res.send('Article one is requested and will be served');
 });
 
-apt.get('/article-two',function(req,res)
+app.get('/article-two',function(req,res)
 {
   res.send('Article two is requested and will be served');
 });
-apt.get('/article-three',function(req,res)
+app.get('/article-three',function(req,res)
 {
   res.send('Article three is requested and will be served');
 });
