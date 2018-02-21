@@ -19,13 +19,32 @@ img.onclick = function()
 */
 // var counter code
 var button = document.getElementById("counter");
-var counter =0;
 button.onclick = function()
 {
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function()
+    {
+        if(request.readyState === XMLHttpRequest.DONE)
+        {
+            // Take some action
+            if(request.status ==== 200)
+            {
+                var counter = request.responseText;
+                var span = document.getElementById('count');
+                span.innerHTML = counter.toString();
+            }
+        }
+        //not done yet
+    };
   // make a response to the counter endpoint
-  //capture the responsea nad store it in the variabe
-  //render the variable in the correct span
-  counter = counter +1;
-  var span = document.getElementById('count');
-  span.innerHTML = counter.toString();
+  //capture the responsea nad store it in the variable
+  // make the request
+  request.open('GET','http://ujjwalcode.imad.hasura-app.io/counter',true);
+  request.send(null);  
 };
+
+
+
+
+
+
